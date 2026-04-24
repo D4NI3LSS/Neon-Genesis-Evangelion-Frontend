@@ -1,7 +1,7 @@
-// ===== NERV DATABASE — app.js =====
-const API_URL = 'https://nge-backend.onrender.com/api'; // Altere para sua URL de produção
 
-// ===== CLOCK =====
+const API_URL = 'https://nge-backend.onrender.com/api'; 
+
+
 function updateClock() {
   const now = new Date();
   document.getElementById('clock').textContent =
@@ -10,7 +10,7 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// ===== TAB NAVIGATION =====
+
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
 
@@ -26,7 +26,7 @@ tabBtns.forEach(btn => {
   });
 });
 
-// ===== CONFIRM MODAL =====
+
 let confirmCallback = null;
 const confirmModal = document.getElementById('confirm-modal');
 const confirmText = document.getElementById('confirm-text');
@@ -46,7 +46,7 @@ document.getElementById('confirm-no').addEventListener('click', () => {
   confirmCallback = null;
 });
 
-// ===== STATUS BADGE =====
+
 function statusBadge(status) {
   const map = {
     'Ativo': 'badge-green',
@@ -57,7 +57,6 @@ function statusBadge(status) {
   return `<span class="card-badge ${map[status] || 'badge-orange'}">${status.toUpperCase()}</span>`;
 }
 
-// ===== API HELPERS =====
 async function apiFetch(url, options = {}) {
   const res = await fetch(url, {
     headers: { 'Content-Type': 'application/json' },
@@ -76,9 +75,7 @@ function showMsg(el, text, isError = false) {
   setTimeout(() => { el.textContent = ''; }, 3000);
 }
 
-// ===================================================
-// ===== EVANGELIONS CRUD =====
-// ===================================================
+
 const evaFormWrapper = document.getElementById('eva-form-wrapper');
 const evaForm = document.getElementById('eva-form');
 const evaFormTitle = document.getElementById('eva-form-title');
@@ -204,9 +201,7 @@ evaForm.addEventListener('submit', async (e) => {
   }
 });
 
-// ===================================================
-// ===== PILOTS CRUD =====
-// ===================================================
+
 const pilotFormWrapper = document.getElementById('pilot-form-wrapper');
 const pilotForm = document.getElementById('pilot-form');
 const pilotFormTitle = document.getElementById('pilot-form-title');
@@ -339,7 +334,7 @@ pilotForm.addEventListener('submit', async (e) => {
   }
 });
 
-// ===== SERVICE WORKER =====
+
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', async () => {
     try {
